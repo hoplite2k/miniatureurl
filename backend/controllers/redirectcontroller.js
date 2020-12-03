@@ -1,7 +1,7 @@
 import Url from '../model/urlmodel.js';
 import asyncHandler from "express-async-handler";
 
-const indexcontroller = asyncHandler(async (req, res) => {
+const redirectcontroller = asyncHandler(async (req, res) => {
     try {
         const url = await Url.findOne({ urlcode: req.params.code });
         if (url) {
@@ -17,4 +17,4 @@ const indexcontroller = asyncHandler(async (req, res) => {
     }
 });
 
-export default indexcontroller;
+export default redirectcontroller;

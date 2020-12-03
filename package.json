@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node backend/server",
-    "server": "nodemon backend/server"
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Nehal N Shet",
   "license": "MIT",
@@ -19,6 +21,7 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.6"
   }
 }
