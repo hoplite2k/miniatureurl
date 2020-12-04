@@ -35,7 +35,7 @@ const Main = () => {
 
     return (
         <>
-            <Jumbotron fluid style={{ backgroundColor: 'honeydew' }}>
+            <Jumbotron fluid style={{ backgroundColor: 'lightcyan' }}>
                 <Container>
                     <h1 style={{ fontFamily: 'times new roman' }}>MINIATURE URL</h1>
                     <p>A URL shortener built with powerful tools to help you grow and protect your brand.</p>
@@ -46,8 +46,9 @@ const Main = () => {
                     <Col>
 
                         <Card className="my-4" bg="light">
-                            <h2 style={{ textAlign: 'center' }}>Enter URL</h2>
+                            <Card.Header><h2 style={{ textAlign: 'center' }}>Enter URL</h2></Card.Header>
                             <Card.Body>
+                                <br />
                                 <Col>
                                     <Form onSubmit={submitHandler}>
                                         <Form.Row className="justify-content-md-center">
