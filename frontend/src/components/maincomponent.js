@@ -37,7 +37,7 @@ const Main = () => {
         <>
             <Jumbotron fluid style={{ backgroundColor: 'honeydew' }}>
                 <Container>
-                    <h1 style={{ fontFamily: 'times new roman' }}>URL SHORTNER</h1>
+                    <h1 style={{ fontFamily: 'times new roman' }}>MINIATURE URL</h1>
                     <p>A URL shortener built with powerful tools to help you grow and protect your brand.</p>
                 </Container>
             </Jumbotron>
@@ -46,12 +46,12 @@ const Main = () => {
                     <Col>
 
                         <Card className="my-4" bg="light">
-                            <h1 style={{ textAlign: 'center' }}>Enter URL</h1>
+                            <h2 style={{ textAlign: 'center' }}>Enter URL</h2>
                             <Card.Body>
                                 <Col>
                                     <Form onSubmit={submitHandler}>
                                         <Form.Row className="justify-content-md-center">
-                                            <Col xs={10}>
+                                            <Col xs={12} md={10}>
                                                 <Form.Group controlId='longurl'>
                                                     <Form.Control type='text' placeholder='Enter URL' value={longurl} onChange={(e) => setlongurl(e.target.value)}></Form.Control>
                                                 </Form.Group>
@@ -67,7 +67,7 @@ const Main = () => {
                                             show && (
                                                 <Form>
                                                     <Form.Row>
-                                                        <Col xs={10}>
+                                                        <Col xs={12} md={10}>
                                                             <Form.Group controlId='shorturl'>
                                                                 <Form.Control type='text' placeholder='Short URL' value={shorturl}></Form.Control>
                                                             </Form.Group>

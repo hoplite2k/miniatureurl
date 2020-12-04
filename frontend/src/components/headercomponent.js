@@ -6,7 +6,7 @@ const Header = () => {
         <header>
             <Navbar bg="primary" variant="light" expand="lg" collapseOnSelect >
                 <Container>
-                    <div className='navbar-text'><span><img src="index.png" alt="logo" className="logo" /></span> URL SHORTNER</div>
+                    <div className='navbar-text'><span className='fas fa-link'></span> MINIATURE URL</div>
                 </Container>
             </Navbar>
         </header>
