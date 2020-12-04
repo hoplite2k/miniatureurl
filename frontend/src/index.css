@@ -11,3 +11,8 @@ main{
   font-size: xx-large;
   margin: 0 auto;
 }
+
+.copy-tag{
+  margin-top: 5px;
+  font-size: small;
+}

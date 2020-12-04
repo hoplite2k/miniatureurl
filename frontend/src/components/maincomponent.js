@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Jumbotron, Container, Row, Form, Button, Col, Card, Popover, OverlayTrigger } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Jumbotron, Container, Row, Form, Button, Col, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { geturl } from '../actions/urlaction';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -9,7 +9,6 @@ import Message from './messagecomponent';
 const Main = () => {
 
     const dispatch = useDispatch();
-    const target = useRef(null);
 
     const getshorturl = useSelector((state) => state.getshorturl);
     const { loading, error, url } = getshorturl;
@@ -17,10 +16,12 @@ const Main = () => {
     const [longurl, setlongurl] = useState('');
     const [shorturl, setshorturl] = useState('');
     const [show, setshow] = useState(false);
+    const [showcopy, setshowcopy] = useState(false);
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(geturl({ longurl }));
+        setshowcopy(false);
     }
 
     useEffect(() => {
@@ -31,12 +32,6 @@ const Main = () => {
             setshow(false);
         }
     }, [url]);
-
-    const copied = (
-        <Popover id="copy">
-            <Popover.Content>Copied to Clipboard</Popover.Content>
-        </Popover>
-    );
 
     return (
         <>
@@ -80,10 +75,9 @@ const Main = () => {
                                                         <Col>
                                                             <center>
                                                                 <CopyToClipboard text={shorturl}>
-                                                                    <OverlayTrigger trigger="click" placement="top" overlay={copied}>
-                                                                        <Button variant='danger' ref={target}>Copy</Button>
-                                                                    </OverlayTrigger>
+                                                                    <Button variant='danger' onClick={() => setshowcopy(true)}>Copy</Button>
                                                                 </CopyToClipboard>
+                                                                {showcopy && (<div className='copy-tag'><span className='fas fa-check' style={{ color: 'green' }}> copied</span></div>)}
                                                             </center>
                                                         </Col>
                                                     </Form.Row>
